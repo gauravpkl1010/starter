@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
-const Work = () => {
+const Publications = () => {
   return (
     <div className="h-full flex items-center justify-center">
       <motion.div
@@ -11,10 +11,10 @@ const Work = () => {
         exit="hidden"
         className="text-center text-3xl z-30"
       >
-        Coming Soon.
+        No Publications Yet.
       </motion.div>
     </div>
   );
 };
 
-export default Work;
+export default Publications;
