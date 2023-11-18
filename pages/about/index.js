@@ -20,16 +20,16 @@ const aboutData = [
       {
         title: "Web Development",
         icons: [
-          <BiLogoHtml5 />,
-          <BiLogoCss3 />,
-          <BiLogoJavascript />,
-          <BiLogoTypescript />,
-          <BiLogoReact />,
+          <BiLogoHtml5 key="" />,
+          <BiLogoCss3 key="" />,
+          <BiLogoJavascript key="" />,
+          <BiLogoTypescript key="" />,
+          <BiLogoReact key="" />,
         ],
       },
       {
         title: "UI/UX Design",
-        icons: [<BiLogoFigma />],
+        icons: [<BiLogoFigma key="" />],
       },
     ],
   },
