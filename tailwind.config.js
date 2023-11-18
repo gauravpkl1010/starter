@@ -4,9 +4,6 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     container: {
@@ -25,10 +22,6 @@ module.exports = {
         primary: "#131424",
         secondary: "#393A47",
         accent: "#F13024",
-      },
-      backgroundImage: {
-        explosion: 'url("/bg-explosion.png")',
-        circles: 'url("/bg-circles.png")',
       },
       animation: {
         "spin-slow": "spin 6s linear infinite",
