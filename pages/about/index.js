@@ -12,6 +12,7 @@ import Circles from "../../components/Circles";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
+import Avatar from "../../components/Avatar";
 const aboutData = [
   {
     title: "skills",
@@ -77,7 +78,9 @@ const About = () => {
         className="hidden xl:flex absolute bottom-0 -left-[370px]"
       ></motion.div>
       <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
-        <div className="flex-1 flex flex-col justify-center">text</div>
+        <div className="flex-1 flex flex-col justify-center">
+          <Avatar src="/man-with-globe.png" w={520} h={460} />
+        </div>
         <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemIndex) => {
@@ -105,7 +108,7 @@ const About = () => {
                   key={itemIndex}
                 >
                   <div>{item.title}</div>
-                  <div className="hidden md:flex">-</div>
+                  <div className="hidden md:flex">:</div>
                   <div>{item.stage}</div>
                   <div className="flex gap-x-4">
                     {item.icons?.map((icon, itemIndex) => {

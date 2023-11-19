@@ -9,7 +9,7 @@ const Publications = () => {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className="text-center text-3xl z-30"
+        className="text-center text-2xl text-white/60 z-30"
       >
         No Publications Yet.
       </motion.div>
