@@ -8,7 +8,6 @@ import {
   BiLogoHtml5,
 } from "react-icons/bi";
 
-import Avatar from "../../components/Avatar";
 import Circles from "../../components/Circles";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -67,7 +66,7 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="h-full bg-primary/60 py-32 text-center xl:text-left">
       {" "}
       <Circles />
       <motion.div
@@ -76,9 +75,7 @@ const About = () => {
         animate="show"
         exit="hidden"
         className="hidden xl:flex absolute bottom-0 -left-[370px]"
-      >
-        <Avatar />
-      </motion.div>
+      ></motion.div>
       <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
         <div className="flex-1 flex flex-col justify-center">text</div>
         <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">

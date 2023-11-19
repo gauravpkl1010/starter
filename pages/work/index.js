@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 const Work = () => {
   return (
-    <div className="h-full flex items-center justify-center">
+    <div className="bg-primary/60 h-full flex items-center justify-center">
       <motion.div
         variants={fadeIn("down", 0.2)}
         initial="hidden"
