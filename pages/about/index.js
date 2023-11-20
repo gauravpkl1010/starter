@@ -38,7 +38,7 @@ const aboutData = [
     title: "experience",
     info: [
       {
-        title: "No Experience",
+        title: "No Experience/-",
       },
     ],
   },
@@ -46,19 +46,19 @@ const aboutData = [
     title: "credentials",
     info: [
       {
-        title: "Secondary Education Examination",
-        institute: "Pioneer Secondary School",
+        title: "Secondary Education Examination:",
+        institute: "Pioneer Secondary School-",
         stage: "2074 B.S.",
       },
       {
-        title: "+2",
-        institute: "National School of Sciences",
+        title: "+2:",
+        institute: "National School of Sciences-",
         stage: "2074 B.S.-2076 B.S.",
       },
       {
-        title: "Bachelor Degree-Computer Engineering",
-        institute: "National School of Sciences",
-        stage: "2077B.S.-/",
+        title: "Bachelor Degree-Computer Engineering:",
+        institute: "Kathford College of Engineering and Management-",
+        stage: "2077B.S./-",
       },
     ],
   },
@@ -82,50 +82,45 @@ const About = () => {
           <Avatar src="/man-with-globe.png" w={520} h={460} />
         </div>
         <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
-          <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
-            {aboutData.map((item, itemIndex) => {
-              return (
-                <button
-                  key={itemIndex}
-                  className={`${
-                    index === itemIndex &&
-                    "text-accent after:w-[100%] after:bg- after:transition-all after:duration-300"
-                  }cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px]  after:bg-white after:absolute after:-bottom-1 after:left-0`}
-                  onClick={() => {
-                    setIndex(itemIndex);
-                  }}
-                >
-                  {item.title}
-                </button>
-              );
-            })}
+          <div className="flex items-center justify-center gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+            {aboutData.map((item, itemIndex) => (
+              <button
+                key={itemIndex}
+                className={`${
+                  index === itemIndex &&
+                  "text-accent after:w-[100%] after:bg- after:transition-all after:duration-300"
+                }cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px]  after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                onClick={() => {
+                  setIndex(itemIndex);
+                }}
+              >
+                {item.title}
+              </button>
+            ))}
           </div>
-          <div className=" py-2 xl:py-6 flex flex-xol gap-y-2 xl:gap-y-4 items-center xl:items-start">
-            {aboutData[index].info.map((item, itemIndex) => {
-              return (
-                <div
-                  className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60  "
-                  key={itemIndex}
-                >
-                  <div>{item.title}</div>
-                  <div className="hidden md:flex">:</div>
-                  <div>{item.stage}</div>
-                  <div className="flex gap-x-4">
-                    {item.icons?.map((icon, itemIndex) => {
-                      return (
-                        <div key={itemIndex} className="text-2xl">
-                          {icon}
-                        </div>
-                      );
-                    })}
-                  </div>
+          <div className=" py-2 xl:py-6 flex flex-col items-center justify-center mb-10">
+            {aboutData[index].info.map((item, itemIndex) => (
+              <div
+                className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
+                key={itemIndex}
+              >
+                <div className="font-bold mt-3">{item.title}</div>
+                <div>{item.stage}</div>
+
+                <div className="flex flex-row gap-x-4 mt-2 md:mt-0">
+                  {item.icons?.map((icon, itemIndex) => (
+                    <div key={itemIndex} className="text-2xl">
+                      {icon}
+                    </div>
+                  ))}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default About;

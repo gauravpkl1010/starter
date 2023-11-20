@@ -1,5 +1,7 @@
 import Circles from "../../components/Circles";
 import { BsArrowRight } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 import React, { useRef, useState } from "react";
@@ -10,10 +12,19 @@ const Contact = () => {
   const [success, setSuccess] = useState(false);
   const sendEmail = (e) => {
     e.preventDefault();
+    const name = formRef.current["name"].value;
+    const email = formRef.current["email"].value;
+    const subject = formRef.current["subject"].value;
+    const message = formRef.current["message"].value;
+
+    if (!name || !email || !subject || !message) {
+      toast.error("Please fill in all the details.");
+      return;
+    }
 
     emailjs
       .sendForm(
-        "service_zrpisz4",
+        "service_q10btoa",
         "template_24u1sfu",
         formRef.current,
         "QnD2SWJ6bgoMHYzXQ"
@@ -21,14 +32,22 @@ const Contact = () => {
       .then(
         (result) => {
           setSuccess(true);
+          toast.success("Submitted Successfully");
+          formRef.current.reset();
         },
         (error) => {
           setError(true);
+          toast.error("Error Occurred");
         }
       );
   };
+
   return (
     <div className="h-full bg-primary/60">
+      <ToastContainer
+        position="bottom-left"
+        toastStyle={{ borderRadius: "0.5rem" }}
+      />
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
         <div className="flex flex-col w-full max-w-[700px] ">
           <motion.h2
@@ -36,7 +55,7 @@ const Contact = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="h2 text-left mb-2 mt-12"
+            className="h2 text-left mb-1 mt-8"
           >
             Feel Free to Reach
             <br /> <span className="text-accent">Out to Me.</span>
@@ -46,7 +65,7 @@ const Contact = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="text-left mb-5 "
+            className="text-left mb-3 "
           >
             Connect with me For Collaboration or a<br />
             Friendly Hello !
@@ -92,8 +111,6 @@ const Contact = () => {
               </span>
               <BsArrowRight className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]" />
             </button>
-            {error && "Error Occurred."}
-            {success && "Submitted Successfully."}
           </motion.form>
         </div>
       </div>

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { HiHome, HiUser, HiViewColumns, HiEnvelope } from "react-icons/hi2";
 import { BsFillBookmarkStarFill } from "react-icons/bs";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 export const navData = [
   { name: "home", path: "/", icon: <HiHome /> },
   { name: "about", path: "/about", icon: <HiUser /> },
@@ -13,26 +13,25 @@ export const navData = [
     icon: <BsFillBookmarkStarFill />,
   },
   { name: "work", path: "/work", icon: <HiViewColumns /> },
-
   {
     name: "contact",
     path: "/contact",
     icon: <HiEnvelope />,
   },
 ];
-const Nav = () => {
+
+const NavMob = () => {
   const router = useRouter();
   const pathName = router.pathname;
+
   return (
-    <nav className="hidden sm:flex flex-col items-center  justify-center   p-4 xl:p-8 gap-y-4 fixed bottom-0 mt-auto right-2 top-0 w-16 xl:w-auto xl:h-screen z-40  ">
-      <div className="flex flex-col items-center justify-center gap-y-10 px-4 py-5  bg-transparent md:bg-white/10 backdrop-blur-sm text-xl rounded-full">
-        {navData.map((link, index) => (
-          <Link
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-transparent p-4 flex justify-between z-30">
+      {navData.map((link, index) => (
+        <Link href={link.path} key={index}>
+          <div
             className={`${
               link.path === pathName && "text-accent"
-            } relative flex items-center group hover:text-accent transition-all duration-300`}
-            href={link.path}
-            key={index}
+            } flex items-center justify-center flex-col group hover:text-accent transition-all duration-300`}
           >
             <div
               className={`${
@@ -42,11 +41,12 @@ const Nav = () => {
             >
               {link.icon}
             </div>
-          </Link>
-        ))}
-      </div>
+            <span className="text-xs">{link.name}</span>
+          </div>
+        </Link>
+      ))}
     </nav>
   );
 };
 
-export default Nav;
+export default NavMob;
