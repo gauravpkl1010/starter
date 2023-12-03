@@ -24,7 +24,7 @@ const Nav = () => {
   const router = useRouter();
   const pathName = router.pathname;
   return (
-    <nav className="hidden sm:flex flex-col items-center  justify-center   p-4 xl:p-8 gap-y-4 fixed bottom-0 mt-auto right-2 top-0 w-16 xl:w-auto xl:h-screen z-40  ">
+    <nav className="hidden md:flex flex-col items-center  justify-center   p-4 xl:p-8 gap-y-4 fixed bottom-0 mt-auto right-2 top-0 w-16 xl:w-auto xl:h-screen z-40  ">
       <div className="flex flex-col items-center justify-center gap-y-10 px-4 py-5  bg-transparent md:bg-white/10 backdrop-blur-sm text-xl rounded-full">
         {navData.map((link, index) => (
           <Link

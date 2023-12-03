@@ -13,9 +13,10 @@ const Layout = ({ children }) => {
     <div
       className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}
     >
+      {" "}
+      <NavMob />
       <LeftImg />
       <Nav />
-      <NavMob />
       <Header />
       {children}
     </div>

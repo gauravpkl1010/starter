@@ -83,20 +83,23 @@ const About = () => {
         </div>
         <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
           <div className="flex items-center justify-center gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
-            {aboutData.map((item, itemIndex) => (
-              <button
-                key={itemIndex}
-                className={`${
-                  index === itemIndex &&
-                  "text-accent after:w-[100%] after:bg- after:transition-all after:duration-300"
-                }cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px]  after:bg-white after:absolute after:-bottom-1 after:left-0`}
-                onClick={() => {
-                  setIndex(itemIndex);
-                }}
-              >
-                {item.title}
-              </button>
-            ))}
+            {aboutData.map((item, itemIndex) => {
+              return (
+                <div
+                  key={itemIndex}
+                  className={`cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:absolute after:-bottom-1 after:left-0 ${
+                    index === itemIndex
+                      ? "text-accent after:w-[100%] after:transition-all after:duration-300 after:bg-red-500"
+                      : "after:bg-white"
+                  }`}
+                  onClick={() => {
+                    setIndex(itemIndex);
+                  }}
+                >
+                  {item.title}
+                </div>
+              );
+            })}
           </div>
           <div className=" py-2 xl:py-6 flex flex-col items-center justify-center mb-10">
             {aboutData[index].info.map((item, itemIndex) => (

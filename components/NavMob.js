@@ -1,23 +1,13 @@
 import React from "react";
-import { HiHome, HiUser, HiViewColumns, HiEnvelope } from "react-icons/hi2";
-import { BsFillBookmarkStarFill } from "react-icons/bs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 export const navData = [
-  { name: "home", path: "/", icon: <HiHome /> },
-  { name: "about", path: "/about", icon: <HiUser /> },
-  {
-    name: "publications",
-    path: "/publications",
-    icon: <BsFillBookmarkStarFill />,
-  },
-  { name: "work", path: "/work", icon: <HiViewColumns /> },
-  {
-    name: "contact",
-    path: "/contact",
-    icon: <HiEnvelope />,
-  },
+  { name: "home", path: "/" },
+  { name: "about", path: "/about" },
+  { name: "publications", path: "/publications" },
+  { name: "work", path: "/work" },
+  { name: "contact", path: "/contact" },
 ];
 
 const NavMob = () => {
@@ -25,23 +15,19 @@ const NavMob = () => {
   const pathName = router.pathname;
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-transparent p-4 flex justify-between z-30">
+    <nav className="md:hidden w-3/4 fixed top-0 right-0 bg-transparent p-4 flex justify-between z-30">
       {navData.map((link, index) => (
         <Link href={link.path} key={index}>
           <div
-            className={`${
-              link.path === pathName && "text-accent"
-            } flex items-center justify-center flex-col group hover:text-accent transition-all duration-300`}
+            className={`cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:absolute after:-bottom-1 after:left-0 ${
+              link.path === pathName
+                ? "text-accent after:w-[100%] after:transition-all after:duration-300 after:bg-red-500"
+                : "after:bg-white"
+            }`}
           >
-            <div
-              className={`${
-                link.path !== pathName && "transform hover:scale-150"
-              } transition-transform`}
-              title={link.name}
-            >
-              {link.icon}
-            </div>
-            <span className="text-xs">{link.name}</span>
+            <span className="text-xs">
+              {link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+            </span>
           </div>
         </Link>
       ))}
