@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="h-full bg-primary/60">
+    <div className="h-full mt-[40px] md:mt-0">
       <ToastContainer
         position="bottom-left"
         toastStyle={{ borderRadius: "0.5rem" }}

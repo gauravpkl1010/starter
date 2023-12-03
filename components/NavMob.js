@@ -9,13 +9,12 @@ export const navData = [
   { name: "work", path: "/work" },
   { name: "contact", path: "/contact" },
 ];
-
 const NavMob = () => {
   const router = useRouter();
   const pathName = router.pathname;
 
   return (
-    <nav className="md:hidden w-4/5fixed top-0 right-0 bg-transparent p-4 flex justify-between z-30">
+    <nav className="md:hidden w-4/5 fixed top-0 right-0 bg-transparent p-4 flex justify-between z-30">
       {navData.map((link, index) => (
         <Link href={link.path} key={index}>
           <div
