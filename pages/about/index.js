@@ -104,7 +104,7 @@ const About = () => {
           <div className=" py-2 xl:py-6 flex flex-col items-center justify-center mb-10">
             {aboutData[index].info.map((item, itemIndex) => (
               <div
-                className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
+                className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-end text-white/60"
                 key={itemIndex}
               >
                 <div className="font-bold mt-3">{item.title}</div>
